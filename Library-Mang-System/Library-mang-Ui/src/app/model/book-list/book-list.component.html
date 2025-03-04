@@ -1,0 +1,12 @@
+<div>
+  <h2 class="book-list" routerLink="/dashboard">Book List</h2>
+
+  <p *ngIf="message">{{ message }}</p>
+
+  <ul>
+    <li *ngFor="let book of books">
+      <p class="title" (click)="viewBookDetails(book._id)">{{ book.title }}</p>
+      <p class="author"><strong>Author: </strong> {{ book.Author }}</p>
+    </li>
+  </ul>
+</div>

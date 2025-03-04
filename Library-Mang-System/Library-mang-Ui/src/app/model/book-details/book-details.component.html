@@ -1,0 +1,15 @@
+<div>
+    <h2 class="book-list">Book Details</h2>
+
+    <p *ngIf="message">{{ message }}</p>
+
+    <ul>
+        <li *ngIf="book">
+            <h1 class="title">{{ book.title }}</h1>
+            <p class="author"><strong>Author: </strong> {{ book.Author }}</p>
+            <p class="description"><strong>Description: </strong>{{ book.Description }}</p>
+        </li>
+    </ul>
+
+    <p routerLink="/bookList" class="back-link">Back to Book List</p>
+</div>

@@ -1,0 +1,52 @@
+.book-list {
+    text-align: center;
+    padding: 30px;
+    cursor: pointer;
+}
+
+.book-list-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px 20px 20px 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+    background-color: #fff;
+}
+
+p {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.author {
+    font-size: 1.2em;
+    margin-top: 2px;
+}
+
+.title {
+    color: rgb(63, 179, 63);
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    display: block;
+    font-weight: bold;
+    cursor: pointer;
+    
+}

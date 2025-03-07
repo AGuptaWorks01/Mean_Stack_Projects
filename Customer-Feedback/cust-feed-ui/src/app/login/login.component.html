@@ -1,1 +1,38 @@
-<p>login works!</p>
+<div class="login-box">
+  <h2>Login</h2>
+  <form #authForm="ngForm" (ngSubmit)="login()">
+    <div class="user-box">
+      <input
+        type="text"
+        name="username"
+        [(ngModel)]="username"
+        required
+        #usernameField="ngModel"
+      />
+      <label>Username</label>
+      <div *ngIf="usernameField.invalid && usernameField.touched" class="error">
+        Username is required.
+      </div>
+    </div>
+
+    <div class="user-box">
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+        #userpasswordField="ngModel"
+      />
+      <label>Password</label>
+      <div *ngIf="userpasswordField.invalid && userpasswordField.touched" class="error">
+        Password is required.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="authForm.invalid">Log In</button>
+
+    <a class="toggle-link" routerLink="/register">
+      Don't have an account? Sign Up
+    </a>
+  </form>
+</div>

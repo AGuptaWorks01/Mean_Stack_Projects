@@ -1,0 +1,61 @@
+<div class="container">
+  <h2>Admin Dashboard</h2>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Feedback</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let feedback of feedbacks">
+          <td>{{ feedback._id }}</td>
+          <td>{{ feedback.feedback }}</td>
+          <td>{{ feedback.date | date:'yyyy-MM-dd' }}</td>
+          <td class="action-buttons">
+            <button (click)="viewFeedback(feedback)" class="view-btn">View</button>
+            <button (click)="openEditModal(feedback)" class="edit-btn">Edit</button>
+            <button (click)="openDeleteModal(feedback._id)" class="delete-btn">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="selectedFeedback" class="modal">
+    <div class="modal-content">
+      <h3>Feedback Details</h3>
+      <p><strong>ID:</strong> {{ selectedFeedback._id }}</p>
+      <p><strong>Feedback:</strong> {{ selectedFeedback.feedback }}</p>
+      <p><strong>Date:</strong> {{ selectedFeedback.date | date:'fullDate' }}</p>
+      <button (click)="selectedFeedback = null" class="close-btn">Close</button>
+    </div>
+  </div>
+
+
+  <div *ngIf="editFeedback" class="modal">
+    <div class="modal-content">
+      <h3>Edit Feedback</h3>
+      <input [(ngModel)]="editFeedback.feedback" class="input-field" placeholder="Update feedback..." />
+      <button (click)="updateFeedback()" class="update-btn">Update</button>
+      <button (click)="editFeedback = null" class="close-btn">Close</button>
+    </div>
+  </div>
+
+
+  <div *ngIf="deleteFeedbackId" class="modal">
+    <div class="modal-content">
+      <h3>Are you sure you want to delete this feedback?</h3>
+      <button (click)="confirmDelete()" class="delete-confirm-btn">Yes, Delete</button>
+      <button (click)="deleteFeedbackId = null" class="close-btn">Cancel</button>
+    </div>
+  </div>
+
+  <div class="logout-container">
+    <button (click)="logout()" class="logout-btn">Logout</button>
+  </div>
+</div>

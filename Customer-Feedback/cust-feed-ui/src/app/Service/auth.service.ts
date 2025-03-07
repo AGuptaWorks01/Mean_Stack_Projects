@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, retry } from 'rxjs';
+import { Observable } from 'rxjs';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class AuthService {
     localStorage.setItem('authToken', token)
   }
 
-  getToken(): String | null {
+  getToken(): string | null {
     return localStorage.getItem('authToken')
   }
 
@@ -32,4 +33,18 @@ export class AuthService {
   isAuthenticated(): boolean {
     return this.getToken() !== null;
   }
+
+  getUserRole(): String | null {
+    const token = this.getToken()
+    if (!token) return null
+
+    try {
+      const decoded: any = jwtDecode(token)
+      return decoded.role || null
+    } catch (error) {
+      console.error("Error decoding token:", error)
+      return null
+    }
+  }
+
 }

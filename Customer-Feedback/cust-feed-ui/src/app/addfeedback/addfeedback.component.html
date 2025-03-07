@@ -1,0 +1,32 @@
+<div class="feedback-container">
+  <a style="cursor: pointer;" type="submit" (click)="logout()">Log-out</a>
+  <h2>Feedback</h2>
+
+  <div class="button-group">
+    <button (click)="showAddForm()">Add Feedback</button>
+    <button (click)="showEditList()">Edit Feedback</button>
+  </div>
+
+  <div *ngIf="isAdding">
+    <textarea
+      [(ngModel)]="feedbackText"
+      placeholder="Write your feedback here..."
+    ></textarea>
+    <button class="btn" (click)="addFeedback()">Submit</button>
+  </div>
+
+  <div *ngIf="isEditingList" class="feedback-list">
+    <h3>Your Feedbacks</h3>
+    <ul>
+      <li *ngFor="let feedback of feedbacks" class="feedback-item">
+        <span class="feedback-text">{{ feedback.feedback }}</span>
+        <button (click)="startEdit(feedback)" class="edit-btn">Edit</button>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="isUpdating">
+    <textarea [(ngModel)]="feedbackText"></textarea>
+    <button class="btn" (click)="updateFeedback()">Update</button>
+  </div>
+</div>

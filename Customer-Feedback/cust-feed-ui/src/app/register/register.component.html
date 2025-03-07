@@ -1,1 +1,69 @@
-<p>register works!</p>
+<div class="login-box">
+  <h2>Register</h2>
+  <form #registerForm="ngForm" (ngSubmit)="register()">
+    <div class="user-box">
+      <input
+        type="text"
+        name="username"
+        [(ngModel)]="username"
+        required
+        #usernameField="ngModel"
+      />
+      <label>Username</label>
+      <div *ngIf="usernameField.invalid && usernameField.touched" class="error">
+        Username is required.
+      </div>
+    </div>
+
+    <div class="user-box">
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="email"
+        required
+        email  #emailField="ngModel"
+      />
+      <label>Email</label>
+      <div *ngIf="emailField.invalid && emailField.touched" class="error">
+        Please enter a valid email.
+      </div>
+    </div>
+
+    <div class="user-box">
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+        #passwordField="ngModel"
+      />
+      <label>Password</label>
+      <div *ngIf="passwordField.invalid && passwordField.touched" class="error">
+        Password is required.
+      </div>
+    </div>
+
+    <div class="user-box">
+      <input
+        type="password"
+        name="confirmPassword"
+        [(ngModel)]="confirmpassword"
+        required
+        #confirmPasswordField="ngModel"
+      />
+      <label>Confirm Password</label>
+      <div
+        *ngIf="confirmPasswordField.invalid && confirmPasswordField.touched"
+        class="error"
+      >
+        Confirm Password is required.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="registerForm.invalid">Sign Up</button>
+
+    <a class="toggle-link" routerLink="/login">
+      Already have an account? Log In
+    </a>
+  </form>
+</div>

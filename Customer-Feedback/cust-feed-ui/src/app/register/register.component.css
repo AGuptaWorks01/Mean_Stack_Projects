@@ -1,0 +1,115 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: #f1f1f1; /* Light grey background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #333; /* Dark grey text color */
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: #e0e0e0; /* Grey background for the form */
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #333; /* Dark grey color for heading */
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+  margin-bottom: 20px; /* Adds space between input fields */
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #333; /* Dark grey text color */
+  margin-bottom: 5px; /* Space for the error message below */
+  border: none;
+  border-bottom: 1px solid #333; /* Dark grey border */
+  outline: none;
+  background: transparent;
+}
+
+.login-box .user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #333; /* Dark grey label */
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03a9f4; /* Blue color for label on focus/valid */
+  font-size: 12px;
+}
+
+/* Error message styling */
+.login-box .user-box .error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px; /* Space between input and error message */
+}
+
+/* Button styling */
+.login-box button[type="submit"] {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  background: #03a9f4; /* Blue background for the button */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.login-box button[type="submit"]:hover {
+  background: #0288d1; /* Darker blue on hover */
+}
+
+/* Sign-Up Link styling */
+.login-box .toggle-link {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: #03a9f4; /* Blue color for the link */
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.login-box .toggle-link:hover {
+  color: #0288d1; /* Darker blue on hover */
+  text-decoration: underline;
+}
+
+.login-box button[type="submit"]:disabled {
+  background: #cccccc; /* Grey background for disabled button */
+  cursor: not-allowed;
+}

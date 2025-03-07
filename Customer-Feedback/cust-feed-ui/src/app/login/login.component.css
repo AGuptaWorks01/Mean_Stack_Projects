@@ -1,94 +1,115 @@
-.form-container {
-    width: 100%;
-    max-width: 300px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1em;
-  }
-  
-  textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: vertical;
-    min-height: 100px;
-  }
-  
-  button {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:disabled {
-    background-color: #33a062;
-    cursor: not-allowed;
-  }
-  
-  .green-btn {
-    background-color: #28a745;
-    color: white;
-  }
-  
-  .green-btn:hover {
-    background-color: #218838;
-  }
-  
-  .error {
-    color: red;
-    font-size: 0.9em;
-    margin-top: 5px;
-  }
-  
-  .button-container {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .toggle-link {
-    text-align: center;
-    color: #3622c9;
-    cursor: pointer;
-    margin-top: 15px;
-    font-weight: bold;
-    text-decoration: underline;
-  }
-  
-  .toggle-link:hover {
-    text-decoration: none;
-  }
-  
-  button[type="button"] {
-    background-color: #4bba2a;
-    color: white;
-    margin-top: 15px;
-  }
-  
-  button[type="button"]:hover {
-    background-color: #5a6268;
-  }
-  
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: #f1f1f1; /* Light grey background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #333; /* Dark grey text color */
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: #e0e0e0; /* Grey background for the form */
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #333; /* Dark grey color for heading */
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+  margin-bottom: 20px; /* Adds space between input fields */
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #333; /* Dark grey text color */
+  margin-bottom: 5px; /* Space for the error message below */
+  border: none;
+  border-bottom: 1px solid #333; /* Dark grey border */
+  outline: none;
+  background: transparent;
+}
+
+.login-box .user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #333; /* Dark grey label */
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03a9f4; /* Blue color for label on focus/valid */
+  font-size: 12px;
+}
+
+/* Error message styling */
+.login-box .user-box .error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px; /* Space between input and error message */
+}
+
+/* Button styling */
+.login-box button[type="submit"] {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  background: #03a9f4; /* Blue background for the button */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.login-box button[type="submit"]:hover {
+  background: #0288d1; /* Darker blue on hover */
+}
+
+/* Sign-Up Link styling */
+.login-box .toggle-link {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: #03a9f4; /* Blue color for the link */
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.login-box .toggle-link:hover {
+  color: #0288d1; /* Darker blue on hover */
+  text-decoration: underline;
+}
+
+.login-box button[type="submit"]:disabled {
+  background: #cccccc; /* Grey background for disabled button */
+  cursor: not-allowed;
+}

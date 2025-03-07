@@ -46,6 +46,8 @@ exports.getCustFeed = async (req, res) => {
 
 exports.addCustFeed = async (req, res) => {
     const { feedback } = req.body
+    if (!feedback) return res.status(400).json({ message: 'All fields are required.' })
+    
     try {
         const addFeedback = await new Feedbacks({ feedback, user: req.user.userId })
         await addFeedback.save();

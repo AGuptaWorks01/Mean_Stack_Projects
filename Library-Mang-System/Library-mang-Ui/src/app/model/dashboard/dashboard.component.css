@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+}
+
+
+.nav-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.nav-list li {
+    display: inline-block;
+    margin: 10px;
+}
+
+.nav-list p {
+    font-size: 1.2em;
+    color: green;
+    cursor: pointer;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.nav-list p:hover {
+    color: darkgreen;
+}
+
+
+button{
+    background-color: red;
+    margin-left:  10%;
+    color: white;
+}
+
+button:hover{
+    background-color: darkred;
+}

@@ -1,0 +1,53 @@
+<div class="auth-container">
+  <h2>{{ isLogin ? "Login" : "Register" }}</h2>
+
+  <form (ngSubmit)="submitForm()">
+    <div>
+      <label for="email">Email:</label>
+      <input
+        id="email"
+        [(ngModel)]="email"
+        name="email"
+        type="email"
+        required
+      />
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input
+        id="password"
+        [(ngModel)]="password"
+        name="password"
+        type="password"
+        required
+      />
+    </div>
+
+    <button type="submit">{{ isLogin ? "Login" : "Register" }}</button>
+
+    <p *ngIf="message" class="message">{{ message }}</p>
+  </form>
+
+  <p (click)="isLogin = !isLogin" class="toggle-form">
+    {{
+      isLogin
+        ? "Don't have an account? Register here."
+        : "Already have an account? Login here."
+    }}
+  </p>
+
+  <div *ngIf="!isLogin && users.length">
+    <h3>Users:</h3>
+    <ul>
+      <li *ngFor="let user of users">
+        {{ user.email }}
+        <button
+          (click)="updateUser(user._id, { email: 'newemail@example.com' })"
+        >
+          Update
+        </button>
+        <button (click)="deleteUser(user._id)">delete</button>
+      </li>
+    </ul>
+  </div>
+</div>

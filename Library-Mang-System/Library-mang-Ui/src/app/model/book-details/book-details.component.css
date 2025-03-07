@@ -1,0 +1,43 @@
+.book-list {
+    text-align: center;
+    padding: 30px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+    background-color: #fff;
+}
+
+h1.title {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #28a745;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+div {
+    text-align: center;
+    margin: auto;
+}

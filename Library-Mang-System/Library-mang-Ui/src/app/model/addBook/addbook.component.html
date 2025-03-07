@@ -1,0 +1,60 @@
+<div class="form-container">
+  <h2 routerLink="/dashboard">Add New Book</h2>
+
+  <form #bookForm="ngForm" (ngSubmit)="addTask()" novalidate>
+    <div class="form-group">
+      <label for="Title">Title:</label>
+      <input
+        type="text"
+        placeholder="Title"
+        [(ngModel)]="book.title"
+        name="title"
+        required
+        #title="ngModel"
+      />
+      <div *ngIf="title.invalid && title.touched" class="error">
+        Title is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="Author">Author:</label>
+      <input
+        type="text"
+        placeholder="Author"
+        [(ngModel)]="book.Author"
+        name="Author"
+        required
+        #author="ngModel"
+      />
+      <div *ngIf="author.invalid && author.touched" class="error">
+        Author is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="Description">Description:</label>
+      <textarea
+        placeholder="Description"
+        [(ngModel)]="book.Description"
+        name="Description"
+        required
+        #description="ngModel"
+      ></textarea>
+      <div *ngIf="description.invalid && description.touched" class="error">
+        Description is required.
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button
+        type="submit"
+        [disabled]="bookForm.invalid"
+      >
+        Add Book
+      </button>
+    </div>
+  </form>
+
+  <p>{{ message }}</p>
+</div>

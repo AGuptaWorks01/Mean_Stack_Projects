@@ -1,0 +1,84 @@
+<div class="book-list-container">
+  <h2 class="book-list" routerLink="/bookList">Book List</h2>
+
+  <p *ngIf="message">{{ message }}</p>
+
+  <ul>
+    <li *ngFor="let book of books" class="book-item">
+      <p class="title" (click)="viewBookDetails(book._id)">{{ book.title }}</p>
+      <p class="author"><strong>Author: </strong> {{ book.Author }}</p>
+  
+      <button class="edit-button" (click)="editBook(book._id)">Edit</button>
+      <button class="delete-button" (click)="deleteBook(book._id)">Delete</button>
+    </li>
+  </ul>
+  
+
+
+<div class="form-container">
+  <h2>Update Book</h2>
+
+  <form #bookForm="ngForm" (ngSubmit)="updateBook()" novalidate>
+    <div class="form-group">
+      <label for="BookId">Book ID:</label>
+      <input
+        type="text"
+        placeholder="Book ID"
+        [(ngModel)]="book._id"
+        name="bookId"
+        required
+        #bookId="ngModel"
+        disabled
+      />
+      <div *ngIf="bookId.invalid && bookId.touched" class="error">
+        Book ID is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="Title">Title:</label>
+      <input
+        type="text"
+        placeholder="Title"
+        [(ngModel)]="book.title"
+        name="title"
+        required
+        #title="ngModel"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="Author">Author:</label>
+      <input
+        type="text"
+        placeholder="Author"
+        [(ngModel)]="book.Author"
+        name="Author"
+        required
+        #author="ngModel"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="Description">Description:</label>
+      <textarea
+        placeholder="Description"
+        [(ngModel)]="book.Description"
+        name="Description"
+        required
+        #description="ngModel"
+        rows="3"
+      ></textarea>
+    </div>
+
+    <div class="button-container">
+      <button
+        type="submit"
+        [disabled]="bookForm.invalid"
+      >
+        Update Book
+      </button>
+    </div>
+  </form>
+
+</div>
